@@ -13,8 +13,9 @@ public class CheckoutController {
 
     @Autowired
     CheckoutService checkoutService;
-        @PostMapping(value = "/getInvoice",consumes = MediaType.TEXT_PLAIN_VALUE )
-    public double getInvoice(@RequestBody /*List<Integer> quantities*/ String quantities)  throws ParseException
+        @PostMapping(value = "/getInvoice", consumes = MediaType.TEXT_PLAIN_VALUE,
+                    produces = MediaType.APPLICATION_JSON_VALUE)
+    public double getInvoice(@RequestBody String quantities)  throws ParseException
     {
         return checkoutService.getInvoice(quantities);
     }
